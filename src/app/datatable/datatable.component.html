@@ -1,0 +1,136 @@
+<h1 class="TituloDatatable">Gestion de productos-online</h1>
+
+<div class="container">
+
+  <button class="btn btn-md btn-outline-primary" data-toggle="modal" data-target="#exampleModal">
+    <i class="fa fa-user"></i>Registro nuevo</button> <br><br><br>
+
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let comentario of data">
+        <td>{{comentario.id}}</td>
+        <td>{{comentario.name}}</td>
+        <td>{{comentario.email}}</td>
+        <td>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModaleditar"
+            (click)="Editar(comentario.id)">Editar</button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalEliminar"
+            (click)="PasarValores(comentario.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+
+<br>
+<!-- Modal crear -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Crear Registro</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="">Nombre</label>
+              <input type="text" class="form-control" id="NombreValorCrear">
+            </div><br>
+            <div class="form-group col-md-4">
+              <label for="">Correo</label>
+              <input type="text" class="form-control" id="CorreoValorCrear">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="crearProducto()">crear</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Actualizar -->
+<div class="modal fade" id="exampleModaleditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal Editar</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label>Id</label>
+              <input type="number" class="form-control" id="idvaloreditar" disabled>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputPassword4">Nombre</label>
+              <input type="text" class="form-control" id="NombreValorEditar">
+            </div><br>
+          </div>
+          <div class="form-row">
+
+            <div class="form-group col-md-4">
+              <label>Correo</label>
+              <input type="text" class="form-control" id="CorreoEditar">
+            </div>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="Actualizar()">Actualizar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Eliminar -->
+<div class="modal fade" id="exampleModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar Registro</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <span><h2>ID</h2></span>
+        <input type="text" id="idvalorEliminar">
+        <h1>Estas seguro de eliminar este producto?</h1>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="EliminarProducto()">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+.footercss {
+    //position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-image: linear-gradient(to right, #ace1ff, #eefff2, #f7feff);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+.textofooter{
+    font-size: 20px; 
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .textofooter {
+      font-size: 16px; /* Tamaño de fuente para dispositivos pequeños */
+    }
+  }
+  
